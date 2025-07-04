@@ -1,35 +1,49 @@
-group 'com.vincentkammerer.sim_data'
-version '1.0'
+/*
+ * Plugin Flutter : com.vincentkammerer.sim_data (v 1.0)
+ * Fichier : sim_data/android/build.gradle
+ */
+
+group   = 'com.vincentkammerer.sim_data'
+version = '1.0'
 
 buildscript {
+    /* ➜ Versions mini requises pour API 35
+       • AGP ≥ 8.1           (on prend 8.9 stable)
+       • Gradle ≥ 8.11.1
+       • JDK   ≥ 17
+    */
+    ext.kotlin_version = '1.9.24'           // utile si tu utilises Kotlin
     repositories {
         google()
         mavenCentral()
     }
-
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.0'
-    }
-}
-
-rootProject.allprojects {
-    repositories {
-        google()
-        mavenCentral()
+        classpath "com.android.tools.build:gradle:8.9.0"         // AGP 8.9 → API 35
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'    // retire-le si ton plugin est 100 % Java
 
 android {
-    compileSdkVersion 30
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
+    namespace    "com.vincentkammerer.sim_data"   // requis depuis AGP 8.x
+    compileSdk   35                               // Android 15 / API 35
 
     defaultConfig {
-        minSdkVersion 23
+        minSdk      23
+        targetSdk   35                            // pas obligatoire pour une lib, mais cohérent
+        consumerProguardFiles 'consumer-rules.pro'
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions { jvmTarget = '1.8' }
+}
+
+repositories {
+    google()
+    mavenCentral()
 }
