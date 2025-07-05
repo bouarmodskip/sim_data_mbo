@@ -12,6 +12,10 @@ buildscript {
        • Gradle ≥ 8.11.1
        • JDK   ≥ 17
     */
+    ext {
+        // Latest stable Kotlin (July 2025)
+        kotlin_version = '1.9.23'
+    }
     repositories {
         google()
         mavenCentral()
