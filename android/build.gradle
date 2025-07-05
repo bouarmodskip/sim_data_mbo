@@ -12,7 +12,6 @@ buildscript {
        • Gradle ≥ 8.11.1
        • JDK   ≥ 17
     */
-    ext.kotlin_version = '1.9.24'           // utile si tu utilises Kotlin
     repositories {
         google()
         mavenCentral()
@@ -24,15 +23,13 @@ buildscript {
 }
 
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'    // retire-le si ton plugin est 100 % Java
 
 android {
-    namespace    "com.vincentkammerer.sim_data"   // requis depuis AGP 8.x
-    compileSdk   35                               // Android 15 / API 35
+    namespace    "com.vincentkammerer.sim_data" 
+    compileSdk   35                             
 
     defaultConfig {
         minSdk      23
-        targetSdk   35                            // pas obligatoire pour une lib, mais cohérent
         consumerProguardFiles 'consumer-rules.pro'
     }
 
@@ -40,7 +37,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
-    kotlinOptions { jvmTarget = '1.8' }
+    kotlinOptions { jvmTarget = '17' }
 }
 
 repositories {
