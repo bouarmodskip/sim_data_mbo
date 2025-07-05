@@ -1,10 +1,10 @@
 name: sim_data
 description: A Flutter plugin to retrieve Sim cards data - dual sim support - only Android for now.
 version: 0.0.3+2
-homepage: https://github.com/vkammerer/sim_data.git
-documentation: https://github.com/vkammerer/sim_data.git
-repository: https://github.com/vkammerer/sim_data.git
-issue_tracker: https://github.com/vkammerer/sim_data/issues
+homepage: https://github.com/bouarmodskip/sim_data_mbo.git
+documentation: https://github.com/bouarmodskip/sim_data_mbo.git
+repository: https://github.com/bouarmodskip/sim_data_mbo.git
+issue_tracker: https://github.com/bouarmodskip/sim_data_mbo/issues
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
